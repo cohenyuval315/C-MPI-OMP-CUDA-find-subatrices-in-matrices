@@ -172,7 +172,6 @@ void create_output_file(const char *fileName,Position** positions,int* total_num
         exit(0);
     }    
     int found;
-    fprintf(file,"Cohen Yuval 208570184 OUTPUT:\n");
     for(int n = 0; n < num_matrices; n++){
         Position* p = positions[n];
         int num_positions = total_num_positions[n];

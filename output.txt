@@ -1,4 +1,3 @@
-Cohen Yuval 208570184 OUTPUT:
 Matrix 1: No Submatrices were found;
 Matrix 2: No Submatrices were found;
 Matrix 3: found Submatrices: 
