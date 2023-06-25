@@ -12,5 +12,5 @@ CUDA:
     each submatrix search in matrix is parrall using cuda
 
 
-![]omp_mpi_cuda.gif
+![](omp_mpi_cuda.gif)
 
