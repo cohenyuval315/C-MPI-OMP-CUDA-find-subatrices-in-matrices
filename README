@@ -1,0 +1,14 @@
+using MPI , omp, and cuda
+
+MPI:
+    master give each worker an image to process
+    when worker finishs he ask master for another image,
+    until no more images,
+
+OMP:
+    each worker uses omp to parrall the searching of the sub matrices in the image matrix given
+
+CUDA:
+    each submatrix search in matrix is parrall using cuda
+
+

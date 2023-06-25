@@ -1,0 +1,12 @@
+Cohen Yuval 208570184 OUTPUT:
+Matrix 1: No Submatrices were found;
+Matrix 2: No Submatrices were found;
+Matrix 3: found Submatrices: 
+-SubmatrixID:2 Position (200,200);
+
+Matrix 4: No Submatrices were found;
+Matrix 5: found Submatrices: 
+-SubmatrixID:1 Position (20,20);
+-SubmatrixID:1 Position (300,300);
+-SubmatrixID:5 Position (200,200);
+
