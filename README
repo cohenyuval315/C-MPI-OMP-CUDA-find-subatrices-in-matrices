@@ -1,3 +1,4 @@
+only in linux
 using MPI , omp, and cuda
 
 MPI:
@@ -14,3 +15,6 @@ CUDA:
 
 ![](https://github.com/cohenyuval315/C-MPI-OMP-CUDA-find-subatrices-in-matrices/blob/main/omp_mpi_cuda.gif)
 
+![](omp_mpi_cuda.gif)
+
+![Alt text](omp_mpi_cuda.gif)
