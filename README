@@ -12,5 +12,5 @@ CUDA:
     each submatrix search in matrix is parrall using cuda
 
 
-![]https://github.com/cohenyuval315/C-MPI-OMP-CUDA-find-subatrices-in-matrices/blob/main/omp_mpi_cuda.gif
+![]omp_mpi_cuda.gif
 
