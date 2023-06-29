@@ -1,4 +1,4 @@
-# search object in image
+# Sub-Matrix Object Detection with Parallel Processing
 ###  for the flow of the program please click here:
 [Flow of the program](https://github.com/cohenyuval315/C-MPI-OMP-CUDA-find-subatrices-in-matrices/blob/main/Flow.md)
 
