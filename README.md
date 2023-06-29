@@ -20,7 +20,8 @@ C MPI Omp CUDA
 ![Screenshot from 2023-06-29 17-36-14](https://github.com/cohenyuval315/C-MPI-OMP-CUDA-find-subatrices-in-matrices/assets/61754002/551670ce-3e09-45fe-887d-7e3007662929)
 
 
-- Worker thread uses CUDA gpu to parallel 
+- Worker thread uses pre defined CUDA blocks in gpu , the num blocks in the grid are dynamicly allocated by the size of the image , in order to fill it all without overrideing the blocks for not  wasting resources.
+- one object image is 
 ![Screenshot from 2023-06-29 17-39-57](https://github.com/cohenyuval315/C-MPI-OMP-CUDA-find-subatrices-in-matrices/assets/61754002/8dfa2830-3068-437c-8481-2bdbbe163ba4)
 
 
