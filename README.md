@@ -9,11 +9,21 @@ C MPI Omp CUDA
   
 # Setup
 1. mpi libs:
-- sudo apt install mpich
-- sudo apt install libopenmpi-dev
-2. omp libs: sudo apt install libomp-dev
-3. cuda libs : use nivida website
+  ```bash
+  sudo apt install mpich
+  ```
+  ```bash
+  sudo apt install libopenmpi-dev
+  ```
   
+2. omp libs:   
+  ```bash
+  sudo apt install libomp-dev
+  ```
+3. cuda libs: [Nividia Website](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html)
+
+
+
 # input
 input file must be in this format:
 - matching value - double - (threshold for matching position)
