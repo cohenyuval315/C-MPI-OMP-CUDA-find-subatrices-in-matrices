@@ -35,7 +35,7 @@ input file must be in this format:
 # Init
 - make clean - for cleaning
 - input file is must
-- configuration file , which i recommended  
+- configuration file - maximum sub matrices to find in matrix 
 - make run (with 2 processes) or  mpiexec -np x ./bin/program (x = num of processes)
 
 # The main flow of the program
