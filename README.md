@@ -1,14 +1,17 @@
 # C-MPI-OMP-CUDA-find-subatrices-in-matrices
 C MPI Omp CUDA
+for the flow of the program click here:
+[FLOW](https://github.com/cohenyuval315/C-MPI-OMP-CUDA-find-subatrices-in-matrices/Flow.md)
+
 # requirments:
-- unix
+- Unix
 - gpu that supports cuda , or cuda emulater(i does not recommend you to go though that, it does not worth it)
 - mpi libs
 - omp libs
 - cuda libs
   
 # Setup
-1. mpi libs:
+1. MPI libs:
   ```bash
   sudo apt install mpich
   ```
@@ -16,37 +19,32 @@ C MPI Omp CUDA
   sudo apt install libopenmpi-dev
   ```
   
-2. omp libs:   
+2. OMP libs:   
   ```bash
   sudo apt install libomp-dev
   ```
-3. cuda libs: [Nividia Website](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html)
+3. CUDA libs: [Nividia Website](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html)
 
 
 
 # input
-input file must be in this format:
-- matching value - double - (threshold for matching position)
-- num matrices - integer
-- matrix id - integer
-- num matrix rows - integer
-- num matrix cols - integer
-- matrix data - double - (data as matrix)
-- ...
-- num sub matrices - integer
-- sub matrix id - integer
-- num sub matrix rows - integer
-- num sub matrix cols - integer
-- sub matrix data - double - (data as matrix)
-- ...
-
+input file must be in this format(each line is a row in the input file):  
+matching value - double - (threshold for matching position)  
+num matrices - integer  
+matrix id - integer  
+num matrix rows - integer  
+num matrix cols - integer  
+matrix data - double - (data as matrix)  
+...  
+num sub matrices - integer  
+sub matrix id - integer  
+num sub matrix rows - integer  
+num sub matrix cols - integer  
+sub matrix data - double - (data as matrix)  
+...  
+  
 # output:
-- ...
-- Matrix id1: No Submatrices were found;
-- Matrix id2: found Submatrices:
-- -SubmatrixID:id1 Position (x1,y1);
-- -SubmatrixID:id2 Position (x1,y2);
-- ...
+
 # Init
 - make clean - for cleaning
 - input file is must
@@ -81,5 +79,7 @@ input file must be in this format:
 - all the position is accumelated to one matrix of all possible positions values  of an object image in an image matrix , which is preparing  for threshold checking later on in the program.
 ![Screenshot from 2023-06-29 17-40-37](https://github.com/cohenyuval315/C-MPI-OMP-CUDA-find-subatrices-in-matrices/assets/61754002/26f934e6-3396-4173-b890-1ac5a8fcf648)
 
-## disclaimer :
-this does not includes all the program , just the interesting part
+the worker pass the object matching positions in image matrix to the master with result tag
+once the all jobs are done, the master using omp to search each object matching position array a valid matching value bellow the matching threshold.
+the master write the positions in output file (there is a maximun number of position per image  on the config.h file)
+the master shut down the rest of the program.
