@@ -1,5 +1,4 @@
-# C-MPI-OMP-CUDA-find-subatrices-in-matrices
-C MPI Omp CUDA
+# search object in image
 ###  for the flow of the program please click here:
 [Flow of the program](https://github.com/cohenyuval315/C-MPI-OMP-CUDA-find-subatrices-in-matrices/blob/main/Flow.md)
 
