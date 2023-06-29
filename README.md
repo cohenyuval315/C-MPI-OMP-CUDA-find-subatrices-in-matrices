@@ -1,28 +1,43 @@
 # C-MPI-OMP-CUDA-find-subatrices-in-matrices
 C MPI Omp CUDA
+# requirments:
+- unix
+- gpu that supports cuda , or cuda emulater(i does not recommend you to go though that, it does not worth it)
+- mpi libs
+- omp libs
+- cuda libs
+  
 # Setup
-- require mpi libs , omp libs  , cuda libs , runs on unix
-# requirments
-- input file in this format:
+1. mpi libs:
+- sudo apt install mpich
+- sudo apt install libopenmpi-dev
+2. omp libs: sudo apt install libomp-dev
+3. cuda libs : use nivida website
+  
+# input
+input file must be in this format:
 - matching value - double - (threshold for matching position)
 - num matrices - integer
 - matrix id - integer
 - num matrix rows - integer
-- num matrix cols
+- num matrix cols - integer
 - matrix data - double - (data as matrix)
 - ...
-- num sub matrices
-- sub matrix id
-- num sub matrix rows
-- num sub matrix cols
+- num sub matrices - integer
+- sub matrix id - integer
+- num sub matrix rows - integer
+- num sub matrix cols - integer
 - sub matrix data - double - (data as matrix)
 - ...
-- 
-# Running
-- make clean
-- input file
+
+# output:
+
+# Init
+- make clean - for cleaning
+- input file is must
+- configuration file , which i recommended  
 - make run (with 2 processes) or  mpiexec -np x ./bin/program (x = num of processes)
--
+
 # The main flow of the program
 - input file consist of all matrixes and submatrixes
 - ouput file consist of all sub matrix mathcing positions in all matrixes with a maixmum value of matching positions
