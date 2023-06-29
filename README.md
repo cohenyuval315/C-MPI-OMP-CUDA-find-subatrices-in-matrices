@@ -71,3 +71,5 @@ input file must be in this format:
 - all the position is accumelated to one matrix of all possible positions values  of an object image in an image matrix , which is preparing  for threshold checking later on in the program.
 ![Screenshot from 2023-06-29 17-40-37](https://github.com/cohenyuval315/C-MPI-OMP-CUDA-find-subatrices-in-matrices/assets/61754002/26f934e6-3396-4173-b890-1ac5a8fcf648)
 
+## disclaimer :
+this does not includes all the program , just the interesting part
