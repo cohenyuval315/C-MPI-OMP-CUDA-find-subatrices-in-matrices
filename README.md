@@ -54,7 +54,7 @@ You can repeat the above steps for each matrix and sub-matrix in your input file
 Please note that the format assumes that the matrix and sub-matrix data are represented as a series of double values. 
   
 # output:
-[example](https://github.com/cohenyuval315/C-MPI-OMP-CUDA-find-subatrices-in-matrices/output.txt)
+[example](https://github.com/cohenyuval315/C-MPI-OMP-CUDA-find-subatrices-in-matrices/blob/main/output.txt)
 
 # Init
 - config.h - configuration file - maximum sub matrices to find in matrix and etc.
