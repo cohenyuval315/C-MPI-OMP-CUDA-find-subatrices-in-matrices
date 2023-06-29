@@ -1,7 +1,7 @@
 # C-MPI-OMP-CUDA-find-subatrices-in-matrices
 C MPI Omp CUDA
 ###  for the flow of the program please click here:
-[Flow of the program](https://github.com/cohenyuval315/C-MPI-OMP-CUDA-find-subatrices-in-matrices/Flow.md)
+[Flow of the program](https://github.com/cohenyuval315/C-MPI-OMP-CUDA-find-subatrices-in-matrices/blob/main/Flow.md)
 
 # requirments:
 - Unix
