@@ -1,6 +1,28 @@
 # C-MPI-OMP-CUDA-find-subatrices-in-matrices
 C MPI Omp CUDA
-
+# Setup
+- require mpi libs , omp libs  , cuda libs , runs on unix
+# requirments
+- input file in this format:
+- matching value - double - (threshold for matching position)
+- num matrices - integer
+- matrix id - integer
+- num matrix rows - integer
+- num matrix cols
+- matrix data - double - (data as matrix)
+- ...
+- num sub matrices
+- sub matrix id
+- num sub matrix rows
+- num sub matrix cols
+- sub matrix data - double - (data as matrix)
+- ...
+- 
+# Running
+- make clean
+- input file
+- make run (with 2 processes) or  mpiexec -np x ./bin/program (x = num of processes)
+-
 # The main flow of the program
 - input file consist of all matrixes and submatrixes
 - ouput file consist of all sub matrix mathcing positions in all matrixes with a maixmum value of matching positions
@@ -20,11 +42,12 @@ C MPI Omp CUDA
 ![Screenshot from 2023-06-29 17-36-14](https://github.com/cohenyuval315/C-MPI-OMP-CUDA-find-subatrices-in-matrices/assets/61754002/551670ce-3e09-45fe-887d-7e3007662929)
 
 
-- Worker thread uses pre defined CUDA blocks in gpu , the num blocks in the grid are dynamicly allocated by the size of the image , in order to fill it all without overrideing the blocks for not  wasting resources.
-- one object image is 
+- Worker thread uses pre defined CUDA blocks in gpu , the num blocks in the grid are dynamicly allocated by the size of the image , in order to fill it all without overrideing the blocks in order to save resources.
+- all possible object positions in image matrix is creat ed
+- the cuda kernel spread the calculation in the blocks and calculated each position matrix to add up each difference to its fit position in the matching positions matrix  , the block does not correspond to the object sub matrix position in the image matrix ,trying to do that will raise the complexity of the algorithm by quite a lot.
 ![Screenshot from 2023-06-29 17-39-57](https://github.com/cohenyuval315/C-MPI-OMP-CUDA-find-subatrices-in-matrices/assets/61754002/8dfa2830-3068-437c-8481-2bdbbe163ba4)
 
 
-
+- all the position is accumelated to one matrix of all possible positions values  of an object image in an image matrix , which is preparing  for threshold checking later on in the program.
 ![Screenshot from 2023-06-29 17-40-37](https://github.com/cohenyuval315/C-MPI-OMP-CUDA-find-subatrices-in-matrices/assets/61754002/26f934e6-3396-4173-b890-1ac5a8fcf648)
 
