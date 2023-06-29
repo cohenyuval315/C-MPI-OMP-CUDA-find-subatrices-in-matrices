@@ -32,8 +32,8 @@ input file must be in this format:
 
 # output:
 ...
-Matrix id1: No Submatrices were found;
-Matrix id2: found Submatrices: 
+Matrix id1: No Submatrices were found;\n
+Matrix id2: found Submatrices: \n
 -SubmatrixID:id1 Position (x1,y1);
 -SubmatrixID:id2 Position (x1,y2);
 ...
