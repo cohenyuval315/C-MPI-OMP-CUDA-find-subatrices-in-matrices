@@ -4,7 +4,7 @@ Detecting object positions in image matrices is accomplished by utilizing a thre
 The process involves implementing MPI for coordinating master and worker nodes across distributed processes, supporting multiprocessing. Additionally, threading is employed through OpenMP to enhance parallel execution. The system is further optimized with GPU support using CUDA for efficient object detection within the matrices.
 
 
-###  for the flow of the program please click here:
+###  for the code architecture description please click here:
 [Flow of the program](https://github.com/cohenyuval315/C-MPI-OMP-CUDA-find-subatrices-in-matrices/blob/main/Flow.md)
 
 # requirments:
