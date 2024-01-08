@@ -38,7 +38,7 @@ Ensure new lines in the hosts file are in LF (/n) format, not CRLF (/r/n). Avoid
 
 ## connection setup:
 
-### ssh:
+## SSH:
 Passwordless SSH protocol is essential for MPI.
 To facilitate MPI commands between computers, install and configure OpenSSH Server. Follow these steps:
 
@@ -81,7 +81,7 @@ Alternatively use default:
   ssh-copy-id other_node_username@other_node_ip
 ```
 
-# Worker Envrioment variables
+## Worker Envrioment variables
 Ensure the system environment has LD_LIBRARY_PATH and nessessary dependancies.
 ```
 export PATH=$PATH:/path/to/mpi/bin
@@ -91,7 +91,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:<mpi_lib_directory>:<openmp_lib_director
 ```
 
 
-# firewall:
+## firewall:
 Ensure the firewall allows SSH traffic on the desired port (default is 22).
 ```
 sudo ufw allow 22
