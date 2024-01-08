@@ -4,7 +4,7 @@ CC = mpicxx
 MPICXX_FLAG = -fopenmp
 MPIEXEC = mpiexec
 MPIEXEC_FLAGS = -np 2
-MPI_MACHINE_FLAGS = -hostfile hosts.txt -map-by  node 
+MPI_MACHINE_FLAGS = -hostfile hosts.txt -map-by node 
 DEBUG = gdb
 DEBUG_FLAGS = -ex run --args
 CC_FLAGS = -g
@@ -34,6 +34,6 @@ debug:
 run:
 	$(MPIEXEC) $(MPIEXEC_FLAGS) ./$(TARGET)
 
-runOn2:
+runOnNodes:
 	$(MPIEXEC) $(MPIEXEC_FLAGS) $(MPI_MACHINE_FLAGS) ./$(TARGET)
 
