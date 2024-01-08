@@ -9,10 +9,11 @@
 - omp libs
 - cuda libs
   
-# Setup
+# Setup Master
 1. MPI libs:
   ```bash
   sudo apt install mpich
+  sudo apt install libopenmpi-dev
   ```
   ```bash
   sudo apt install libopenmpi-dev
@@ -22,97 +23,84 @@
   ```bash
   sudo apt install libomp-dev
   ```
-3. CUDA libs: [Nividia Website](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html)
+3. CUDA libraries: [Nividia Website](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html)
 
 
-4. multiple nodes
-do not use wsl/2 or dockers when using multiple computer as the MPI is not compatible with that.
-# creating the file
-- to run on multiple nodes you need to define hosts in hosts.txt, you get the host name of the desired computers  using the host name command which avialable on any platform
+# Setup With Workers
+Avoid using WSL/2 or Docker when using multiple nodes, as MPI is not compatible with these platforms.
+
+## creating hosts file:
+Define hosts in hosts.txt for running on multiple nodes. Retrieve host names using the command:
 ```
   hostname
 ```
-the hosts file new lines must be in LF(/n) format and not CRLF (/r/n)
-remmeber to not add any extra spaces.
+Ensure new lines in the hosts file are in LF (/n) format, not CRLF (/r/n). Avoid adding extra spaces.
 
-# setting the connection:
+## connection setup:
 
-# ssh:
-To facilitate MPI commands between computers over a network, the SSH protocol is essential. Follow these steps to install and configure OpenSSH Server, generate SSH key pairs, and exchange public keys between nodes.
-## Step 1: Install OpenSSH Server:
+### ssh:
+Passwordless SSH protocol is essential for MPI.
+To facilitate MPI commands between computers, install and configure OpenSSH Server. Follow these steps:
+
+Step 1: 
+- Install OpenSSH Server:
 ```
 sudo apt-get install openssh-server
-
+```
+- Start SSH Server Service
+```
+  sudo service ssh start
 ```
 
-## Step 2: Generate SSH Key Pairs and Exchange Public Keys:
+Step 2: Generate SSH Key Pairs and Exchange Public Keys:
 On each computer involved in MPI communication, generate SSH key pairs and exchange public keys between nodes. The keys will be associated with your current user.
 ```
   ssh-keygen -t rsa
 ```
 Enter the desired filename and password when prompted.
-Take note of the <filepath> and proceed to the next steps.
-
-# Step 3: Adjust Permissions if Necessary
-- 700 - read, write, excute for owner only.
-
-- For WSL2 
-```
-chmod 700 /mnt/c/Users/<username>/.ssh
-```
-
-Note: In WSL2, the path might appear as /root/.ssh.
-For Unix
-```
- chmod 700 /root/.ssh
-```
+Take note of the <strong>filepath</strong> and proceed to the next steps.
 
 Ensure that the following files are present in the .ssh folder:
-<filename>.pub: Public key to be shared with other nodes.
-<filename>: Private key (do not expose).
+<strong>filename</strong>.pub: Public key to be shared with other nodes.
+<strong>filename</strong>: Private key (do not expose).
+
+Adjust Permissions if Necessary
+- 700 - read, write, excute for owner only.
+
+<strong>filepath</strong> - unix default is /root/.ssh  (Interesting fact: In WSL2 it might appear as /root/.ssh ,but its actually in mnt/'disk'/Users/'user'/.ssh/)
+```
+ chmod 700 <filepath>
+```
 
 Step 4: Copy Public Key to Other Nodes
 ```
   ssh-copy-id -i ~/.ssh/<filename>.pub other_node_username@other_node_ip
 ```
-Alternatively:
+Alternatively use default:
 ```
   ssh-copy-id other_node_username@other_node_ip
 ```
 
-# Paths
-Ensure that the env of the system has LD_LIBARY_PATH and mpirun
+# Worker Envrioment variables
+Ensure the system environment has LD_LIBRARY_PATH and nessessary dependancies.
+```
+export PATH=$PATH:/path/to/mpi/bin
+export PATH=$PATH:/path/to/openmpi/bin
+export PATH=$PATH:/path/to/cuda/bin
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:<mpi_lib_directory>:<openmp_lib_directory>:<cuda_lib_directory> # one liner
+```
 
 
 # firewall:
-Ensure that the firewall allows SSH traffic on the desired port (default is 22).
+Ensure the firewall allows SSH traffic on the desired port (default is 22).
 ```
 sudo ufw allow 22
 sudo ufw enable
 sudo ufw status  
 ```
 
-
-
-# start ssh server service
-```
-  sudo service ssh start
-```
-MPI typically uses random high ports for communication, so this setup is sufficent for allowing ssh traffic and allowing the ssh conneciton. 
-
-
-# Envrioment variables
-```
-  export PATH=$PATH:/path/to/mpi/bin
-  export PATH=$PATH:/path/to/openmpi/bin
-  export PATH=$PATH:/path/to/cuda/bin
-  export  LD_LIBRARY_PATH=$LD_LIBRARY_PATH:<mpi_lib_directory>:<openmp_lib_directory>:<cuda_lib_directory> # one liner
-```
-
-
-
-
-# input
+# Program
+## input
 The input file should follow this format, where each line represents a row in the file:  
 
 1.Matching value: This is a double value that represents the threshold for matching positions.  
@@ -138,10 +126,10 @@ You can repeat the above steps for each matrix and sub-matrix in your input file
   
 Please note that the format assumes that the matrix and sub-matrix data are represented as a series of double values. 
   
-# output:
+## output:
 [example](https://github.com/cohenyuval315/C-MPI-OMP-CUDA-find-subatrices-in-matrices/blob/main/output.txt)
 
-# Init
+## Init
 - config.h - configuration file - maximum sub matrices to find in matrix and etc.
     
 - make clean , make   
